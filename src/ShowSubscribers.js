@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 // let subscribers = [
 //   {
 //     id: 1,
-//     name: "Shilpa Bhat",
+//     name: "Shivangi",
 //     phone: "8888888888"
 //   },
 //   {
 //     id: 2,
-//     name: "Srishti Gupta",
+//     name: "Neha",
 //     phone: "9999999999"
 //   }
 // ];
@@ -29,6 +29,9 @@ class ShowSubscribers extends Component {
   //    this.setState({subscibersList : subscribers});
   //  }
 
+  onDeleted = (subscriberId) => {
+    this.props.deleteSubscriberHandler(subscriberId);
+  }
 
   render() {
 
@@ -47,7 +50,7 @@ class ShowSubscribers extends Component {
                 <span className="grid-item">{sub.name}</span>
                 <span className="grid-item">{sub.phone}</span>
                 <span className="grid-item action-btn-container">
-                  <button className="custom-btn delete-btn" >Delete</button>
+                  <button className="custom-btn delete-btn" onClick={this.onDeleted.bind(this, sub.id)} >Delete</button>
                 </span>
               </div>
             })
